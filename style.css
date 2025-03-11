@@ -1,12 +1,15 @@
 /* Color Palette */
 :root {
-    --primary: #6C63FF; /* Changed to a more vibrant color */
+    --primary: #6C63FF;
+    /* Changed to a more vibrant color */
     --background: #F7F7FF;
     --sidebar: #6BAB90;
     --text-dark: #291720;
     --button: #177E89;
-    --card-bg: #FFFFFF; /* Background for announcement cards */
-    --card-shadow: rgba(0, 0, 0, 0.1); /* Shadow for cards */
+    --card-bg: #f7f7f7;
+    /* Background for announcement cards */
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    /* Shadow for cards */
 }
 
 /* General Styles */
@@ -30,9 +33,17 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+img {
+    padding-top: 6.5px;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+}
+
 .logo {
     font-size: 1.5em;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 .search-bar {
@@ -60,7 +71,8 @@ header {
 }
 
 .auth-buttons button:hover {
-    background-color: #0f5b5e; /* Darker shade on hover */
+    background-color: #0f5b5e;
+    /* Darker shade on hover */
 }
 
 /* Layout */
@@ -115,13 +127,14 @@ main {
     box-shadow: 0 4px 8px var(--card-shadow);
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
     color: var(--text-dark);
 }
 
 /* Footer */
-footer
-{
+footer {
     display: flex;
     justify-content: space-between;
     background-color: var(--text-dark);
@@ -131,7 +144,7 @@ footer
     border-top: 2px solid var(--primary);
 }
 
-footer .bottom-buttons {
+header .add-buttons {
     display: flex;
 }
 
@@ -146,7 +159,8 @@ footer button {
 }
 
 footer button:hover {
-    background-color: #0f5b5e; /* Darker shade on hover */
+    background-color: #0f5b5e;
+    /* Darker shade on hover */
 }
 
 footer p {
@@ -157,5 +171,6 @@ footer p {
 
 /* Ensure footer is at the bottom */
 footer {
-    margin-top: auto; /* Pushes the footer to the bottom of the page */
+    margin-top: auto;
+    /* Pushes the footer to the bottom of the page */
 }
