@@ -115,3 +115,20 @@ footer {
     padding: 15px 20px;
     margin-top: auto;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.login {
+    background-color: #177E89;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.register {
+    background-color: #177E89;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
