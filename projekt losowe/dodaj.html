@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dodaj Ogłoszenie</h1>
+    <form action="add_announcement.php" method="POST">
+        <label for="user_id">ID Użytkownika:</label>
+        <input type="number" id="user_id" name="user_id" required><br><br>
+
+        <label for="category_id">Kategoria:</label>
+        <select id="category_id" name="category_id" required>
+            <option value="1">Samochody</option>
+            <option value="2">Motocykle i skutery</option>
+            <option value="3">Części i akcesoria</option>
+            <option value="4">Usługi motoryzacyjne</option>
+        </select><br><br>
+
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="description">Opis:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="price">Cena:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <input type="submit" value="Dodaj Ogłoszenie">
+    </form>
+</body>
+</html>

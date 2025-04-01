@@ -1,0 +1,39 @@
+CREATE DATABASE AnnouncementService;
+
+USE AnnouncementService;
+
+CREATE TABLE Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+);
+
+CREATE TABLE Categories (
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    CategoryName VARCHAR(100) NOT NULL UNIQUE,
+    Description TEXT
+);
+
+INSERT INTO Categories (CategoryName, Description) VALUES
+('Samochody', 'Osobowe i dostawcze samochody.'),
+('Motocykle i skutery', 'Motocykle oraz skutery.'),
+('Części i akcesoria', 'Części zamienne oraz akcesoria do pojazdów.'),
+('Usługi motoryzacyjne', 'Usługi związane z naprawą i konserwacją pojazdów.');
+
+CREATE TABLE Announcements (
+    AnnouncementID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT,
+    CategoryID INT,
+    Title VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Price DECIMAL(10, 2),
+    DateOfCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (User ID) REFERENCES Users(UserID),
+    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+);
+
+INSERT INTO Announcements (User ID, CategoryID, Title, Description, Price) VALUES
+(1, 1, 'Sprzedam Ford Focus', 'Ford Focus w dobrym stanie, rocznik 2015, przebieg 50,000 km.', 45000.00),
+(1, 2, 'Sprzedam skuter Honda', 'Skuter Honda, idealny do miasta, mało używany.', 3000.00),
+(1, 1, 'Sprzedam ciężarówkę MAN', 'Ciężarówka MAN, idealna do transportu, rocznik 2010.', 80000.00);
