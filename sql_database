@@ -36,7 +36,7 @@ CREATE TABLE Announcements (
 
 PRZED INSERTERM TRZEBA STWORZYC USERA O id = 1 !!!!!!!!!!!!!!!!!!!!!!
 
-INSERT INTO Announcements (User ID, CategoryID, Title, Description, Price) VALUES
+INSERT INTO Announcements (UserID, CategoryID, Title, Description, Price) VALUES
 (1, 1, 'Sprzedam Ford Focus', 'Ford Focus w dobrym stanie, rocznik 2015, przebieg 50,000 km.', 45000.00),
 (1, 2, 'Sprzedam skuter Honda', 'Skuter Honda, idealny do miasta, mało używany.', 3000.00),
 (1, 1, 'Sprzedam ciężarówkę MAN', 'Ciężarówka MAN, idealna do transportu, rocznik 2010.', 80000.00);
