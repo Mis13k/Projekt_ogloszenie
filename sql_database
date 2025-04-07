@@ -9,6 +9,8 @@ CREATE TABLE Users (
     Email VARCHAR(100) NOT NULL UNIQUE
 );
 
+INSER INTO Users (UserID, Username, Password, Email) VALUES ('', 'system', 'system', 'system')
+
 CREATE TABLE Categories (
     CategoryID INT AUTO_INCREMENT PRIMARY KEY,
     CategoryName VARCHAR(100) NOT NULL UNIQUE,
@@ -29,12 +31,9 @@ CREATE TABLE Announcements (
     Description TEXT NOT NULL,
     Price DECIMAL(10, 2),
     DateOfCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (User ID) REFERENCES Users(UserID),
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
-
-
-PRZED INSERTERM TRZEBA STWORZYC USERA O id = 1 !!!!!!!!!!!!!!!!!!!!!!
 
 INSERT INTO Announcements (UserID, CategoryID, Title, Description, Price) VALUES
 (1, 1, 'Sprzedam Ford Focus', 'Ford Focus w dobrym stanie, rocznik 2015, przebieg 50,000 km.', 45000.00),
