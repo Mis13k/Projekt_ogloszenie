@@ -43,6 +43,9 @@ $announcements = $stmt->fetchAll();
             <div class="page-name">
                 Mission: Affordable
             </div>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <span class="welcome-msg">Witaj, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+            <?php endif; ?>
         </div>
 
 
@@ -54,12 +57,12 @@ $announcements = $stmt->fetchAll();
         <div class="auth-buttons">
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="add_announcement.php" class="small-ui">Dodaj ogłoszenie</a>
-                <span class="welcome-msg">Witaj, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
                 <a href="logout.php" class="small-ui">Logout</a>
             <?php else: ?>
                 <a href="login.php" class="small-ui">Login</a>
                 <a href="register.php" class="small-ui">Register</a>
             <?php endif; ?>
+            <button id="theme-toggle" class="small-ui">Switch to Dark Mode</button>
         </div>
     </header>
 
@@ -82,6 +85,31 @@ $announcements = $stmt->fetchAll();
     <footer>
         <p>Maciej Korowacki, Wiktoria Kruk, Michal Bujak</p>
     </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check if the dark mode is already enabled from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = 'Switch to Light Mode';
+        }
+
+        // Toggle theme when the button is clicked
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Save the theme choice to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = 'Switch to Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+
 </body>
 
 </html>
