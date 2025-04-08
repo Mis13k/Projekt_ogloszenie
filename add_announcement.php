@@ -28,6 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+$themeClass = '';
+if (isset($_SESSION['user_id'])) {
+    $stmt = $pdo->prepare("SELECT ThemePreference FROM Users WHERE UserID = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+    $user = $stmt->fetch();
+    if ($user && $user['ThemePreference'] === 'dark') {
+        $themeClass = 'dark-mode';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="auth.css" />
 </head>
 
-<body>
+<body class="<?php echo $themeClass; ?>">
     <header>
         <div class="left-header">
             <div class="logo">

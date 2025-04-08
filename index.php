@@ -34,7 +34,7 @@ $announcements = $stmt->fetchAll();
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="<?php echo $themeClass; ?>">
     <header>
         <div class="left-header">
             <div class="logo">
@@ -89,24 +89,27 @@ $announcements = $stmt->fetchAll();
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Check if the dark mode is already enabled from localStorage
+        // Load user's saved theme from localStorage (first visit fallback)
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             themeToggle.textContent = 'Switch to Light Mode';
         }
 
-        // Toggle theme when the button is clicked
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            // Save the theme choice to localStorage
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = 'Switch to Light Mode';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = 'Switch to Dark Mode';
-            }
+            const isDark = body.classList.toggle('dark-mode');
+            const newTheme = isDark ? 'dark' : 'light';
+
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+
+            // Save theme on the server
+            fetch('save_theme.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ theme: newTheme })
+            });
         });
     </script>
 

@@ -4,6 +4,13 @@
   --text-dark: #291720;
   --button: #177e89;
   --button-hover: #0f5b5e;
+  --content-bg-light: white;
+  --content-bg-dark: #1e1e1e;
+  --input-bg-light: #fff;
+  --input-bg-dark: #2c2c2c;
+  --border-light: #ccc;
+  --border-dark: #555;
+  --footer-bg: #291720;
 }
 
 body {
@@ -13,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color: black;
 }
 
 header {
@@ -87,9 +95,10 @@ main {
 .content {
   width: 500px;
   padding: 20px;
-  background-color: white;
+  background-color: var(--content-bg-light);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: black;
 }
 
 .form-group {
@@ -107,7 +116,7 @@ main {
 .form-group textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-light);
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -123,7 +132,7 @@ main {
 footer {
   display: flex;
   justify-content: center;
-  background-color: var(--text-dark);
+  background-color: var(--footer-bg);
   color: white;
   padding: 15px 20px;
   margin-top: auto;
@@ -140,4 +149,27 @@ a {
 
 .add-ui {
   text-align: center;
+}
+
+/* dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode .content {
+  background-color: var(--content-bg-dark);
+  color: white;
+  text-decoration-color: white;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+  background-color: var(--input-bg-dark);
+  color: white;
+  border: 1px solid var(--border-dark);
+}
+body.dark-mode label {
+  color: white;
 }
