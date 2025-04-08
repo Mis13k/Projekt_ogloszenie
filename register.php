@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Prepare the SQL statement to insert the user
         $stmt = $pdo->prepare("INSERT INTO Users (Username, Email, Password) VALUES (?, ?, ?)");
-        
+
         // Execute the statement and check for success
         if ($stmt->execute([$username, $email, $hashed_password])) {
             $_SESSION['message'] = "Registration successful!";
@@ -33,26 +33,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rejestracja - Ogłoszenia</title>
+    <title>Mission: Affordable - Register</title>
     <link rel="stylesheet" href="auth.css" />
 </head>
+
 <body>
     <header>
-        <div class="logo">
-            <a href="index.php"><img src="logo.png" alt="logo" /></a>
+        <div class="left-header">
+            <div class="logo">
+                <a href="index.php"><img src="logo.png" alt="logo" /></a>
+            </div>
+            <div class="page-name">
+                Mission: Affordable
+            </div>
         </div>
         <div class="auth-buttons">
-            <a href="login.php" class="login">Login</a>
+            <a href="login.php" class="small-ui">Login</a>
         </div>
     </header>
+
     <main>
         <section class="content">
             <h2>Rejestracja</h2>
             <?php if (isset($_SESSION['error'])): ?>
-                <p><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+                <p><?php echo $_SESSION['error'];
+                unset($_SESSION['error']); ?></p>
             <?php endif; ?>
             <form action="register.php" method="POST">
                 <div class="form-group">
@@ -79,4 +88,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Maciej Korowacki, Wiktoria Kruk, Michal Bujak</p>
     </footer>
 </body>
+
 </html>

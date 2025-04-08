@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['Password'])) {
-        $_SESSION['user_id'] = $user['User ID'];
+        $_SESSION['user_id'] = $user['UserID'];
         $_SESSION['username'] = $user['Username'];
         header("Location: index.php");
         exit();
@@ -23,26 +23,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Ogłoszenia</title>
+    <title>Mission: Affordable - Login</title>
     <link rel="stylesheet" href="auth.css" />
 </head>
+
 <body>
     <header>
-        <div class="logo">
-            <a href="index.php"><img src="logo.png" alt="logo" /></a>
+        <div class="left-header">
+            <div class="logo">
+                <a href="index.php"><img src="logo.png" alt="logo" /></a>
+            </div>
+            <div class="page-name">
+                Mission: Affordable
+            </div>
         </div>
         <div class="auth-buttons">
-            <a href="register.php" class="register">Register</a>
+            <a href="register.php" class="small-ui">Register</a>
         </div>
     </header>
+
     <main>
         <section class="content">
             <h2>Logowanie</h2>
             <?php if (isset($_SESSION['error'])): ?>
-                <p><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+                <p><?php echo $_SESSION['error'];
+                unset($_SESSION['error']); ?></p>
             <?php endif; ?>
             <form action="login.php" method="POST">
                 <div class="form-group">
@@ -61,4 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Maciej Korowacki, Wiktoria Kruk, Michal Bujak</p>
     </footer>
 </body>
+
 </html>
