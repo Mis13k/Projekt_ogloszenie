@@ -6,8 +6,10 @@ CREATE TABLE Users (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(50) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
+    Email VARCHAR(100) NOT NULL UNIQUE
 );
+
+INSERT INTO Users (UserID, Username, Password, Email) VALUES ('', 'system', 'system', 'system')
 
 CREATE TABLE Categories (
     CategoryID INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +35,7 @@ CREATE TABLE Announcements (
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
 
-INSERT INTO Announcements (User ID, CategoryID, Title, Description, Price) VALUES
+INSERT INTO Announcements (UserID, CategoryID, Title, Description, Price) VALUES
 (1, 1, 'Sprzedam Ford Focus', 'Ford Focus w dobrym stanie, rocznik 2015, przebieg 50,000 km.', 45000.00),
 (1, 2, 'Sprzedam skuter Honda', 'Skuter Honda, idealny do miasta, mało używany.', 3000.00),
 (1, 1, 'Sprzedam ciężarówkę MAN', 'Ciężarówka MAN, idealna do transportu, rocznik 2010.', 80000.00);
