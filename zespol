@@ -1,7 +1,7 @@
 zespół:
 1. Michal Bujak(kierownik)
 2. Maciej Korowacki(programista)
-3. Wiktoria Kruk(grafik/stazysta)
+3. Wiktoria Kruk(stazysta/dokumentacja)
 
 04.03.2025
 Maciej Korowacki - trello, paleta kolorow
@@ -9,21 +9,21 @@ Wiktoria Kruk - projekt wizualny, paleta kolorow
 Michal Bujak - nadzor, wybor tematu serwisu
 
 11.03.2025
-Michał Bujak, Maciej Korowacki - kod
-Wiktoria Kruk- logo i nazwa
+Michał Bujak, Maciej Korowacki - utworzono idex i główny plik css oraz utworzono baze danych
+Wiktoria Kruk - logo i nazwa
 
 18.03.2025
-Michał Bujak, Wiktoria Kruk - inny projekt
-Maciej Korowacki - L4
+(ćwiczenia z git 2)
 
 25.03.2025
-Michał Bujak, Wiktoria Kruk - kod
-Maciej Korowacki - L4
+Michał Bujak, Wiktoria Kruk - utworzono strony login, rejestracja i dodaj ogłoszenie
+Maciej Korowacki - nieobecny
 
 01.04.2025
-Wiktoria Kruk, Michal Bujak - kod
-Maciej Korowacki - baza danych
-prima aprilis
+Wiktoria Kruk, Michal Bujak - poprawiono style css 
+Maciej Korowacki - funkcjonalność rejestacji loginu i zapisywanie usera w sesji oraz zapis i odczyt z serwera bazodanowego
 
 08.04.2025
-Wiktoria Kruk, Michal Bujak, Maciej Korowacki - kod
+Wiktoria Kruk - ostateczne poprawki wyglądowe
+Michal Bujak - usuwanie redundancji w kodzie, dodanie "dark mode'u"
+Maciej Korowacki - dodanie funkcjonalnosci tworzenia ogłoszenia
