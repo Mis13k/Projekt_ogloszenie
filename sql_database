@@ -9,12 +9,12 @@ CREATE TABLE Users (
     Email VARCHAR(100) NOT NULL UNIQUE
 );
 
-INSERT INTO Users (UserID, Username, Password, Email) VALUES ('', 'system', 'system', 'system')
+INSERT INTO Users (UserID, Username, Password, Email) VALUES ('', 'system', 'system', 'system');
 
 CREATE TABLE Categories (
     CategoryID INT AUTO_INCREMENT PRIMARY KEY,
     CategoryName VARCHAR(100) NOT NULL UNIQUE,
-    Description TEXT
+    Description TEXT NOT NULL
 );
 
 INSERT INTO Categories (CategoryName, Description) VALUES
@@ -31,7 +31,7 @@ CREATE TABLE Announcements (
     Description TEXT NOT NULL,
     Price DECIMAL(10, 2),
     DateOfCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (User ID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
 
